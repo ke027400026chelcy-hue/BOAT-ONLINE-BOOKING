@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - BlueWave</title>
+    <!-- Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #0077b6; /* Ocean Blue */
+            --secondary-color: #00b4d8; /* Lighter Blue */
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-color: #f4f9fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Main Section Styling */
+        section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .booking-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: -5px;
+            color: #555;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #023e8a;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #eef2f5;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BlueWave Boat Booking</h1>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="booking.html">Booking</a>
+        <a href="contacts.html">Contact Us</a>
+    </nav>
+</header>
+
+<section>
+    <div class="booking-container">
+        <h2>Reserve Your Spot</h2>
+        
+        <!-- Added ID to form for JS selection -->
+        <form id="bookingForm">
+            <!-- Added Labels for Accessibility -->
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+            <label for="date">Date of Trip</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="passengers">Number of Passengers</label>
+            <input type="number" id="passengers" name="passengers" min="1" max="20" placeholder="e.g. 4" required>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 BlueWave Boat Booking. All rights reserved.</p>
+</footer>
+
+<script>
+    // --- JAVASCRIPT LOGIC ---
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('bookingForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop page from reloading
+
+            // Get values
+            const name = document.getElementById('fullname').value;
+            const date = document.getElementById('date').value;
+            const passengers = document.getElementById('passengers').value;
+
+            // Simple validation logic (optional extra check)
+            if(passengers > 20) {
+                alert("Sorry, our boats only hold up to 20 people.");
+                return;
+            }
+
+            // Success Message
+            alert(`Thank you, ${name}! \nYour booking for ${passengers} passengers on ${date} has been received.`);
+            
+            // Reset the form
+            form.reset();
+        });
+    });
+</script>
+
+</body>
+</html>

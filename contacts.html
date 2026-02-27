@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BlueWave</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLES (Consistent with previous pages) --- */
+        :root {
+            --primary-color: #0077b6;
+            --secondary-color: #00b4d8;
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-color: #f4f9fc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 { font-size: 1.5rem; font-weight: 600; }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover { opacity: 0.8; text-decoration: underline; }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            color: #666;
+        }
+
+        /* Contact Container (Split Layout) */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* Left Side: Contact Info */
+        .contact-info {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-item span {
+            font-size: 1.1rem;
+        }
+
+        .owner-signature {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .owner-signature p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .owner-signature strong {
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Right Side: Form */
+        .contact-form-wrapper {
+            padding: 3rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            width: 100%;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #023e8a;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #eef2f5;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 10px; }
+            
+            .contact-container {
+                grid-template-columns: 1fr; /* Stack vertically on mobile */
+            }
+            
+            .contact-info {
+                padding: 2rem;
+            }
+            
+            .contact-form-wrapper {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BlueWave Boat Booking</h1>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="booking.html">Booking</a>
+        <a href="contacts.html">Contact Us</a>
+    </nav>
+</header>
+
+<main>
+    <div class="page-title">
+        <h2>Get In Touch</h2>
+        <p>Have questions about our boats or bookings? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-container">
+        <!-- Left Side: Contact Details -->
+        <div class="contact-info">
+            <div>
+                <h3>Contact Information</h3>
+                <div class="info-item">
+                    <span>📍 123 Marina Bay Drive, Ocean City</span>
+                </div>
+                <div class="info-item">
+                    <span>📞 (555) 123-4567</span>
+                </div>
+                <div class="info-item">
+                    <span>✉️ support@bluewave.com</span>
+                </div>
+            </div>
+
+            <div class="owner-signature">
+                <p>Managed by</p>
+                <strong>Chelcy Snyder</strong>
+                <p style="font-size: 0.8rem; margin-top: 5px;">Project Owner</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="contact-form-wrapper">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Inquiry about..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 BlueWave Boat Booking. Owned by Chelcy Snyder.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop page reload
+
+            const name = document.getElementById('name').value;
+            const subject = document.getElementById('subject').value;
+
+            // Simulate sending message
+            alert(`Thank you, ${name}!\n\nYour message regarding "${subject}" has been sent to Chelcy Snyder.\nWe will get back to you shortly.`);
+            
+            form.reset();
+        });
+    });
+</script>
+
+</body>
+</html>
